@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Spelling Game</title>
+
+    <link rel="stylesheet" type="text/css" href="spellinggame.css">
+    <!--link rel="stylesheet" type="text/css" href="reset.css"-->
+
+  </head>
+  <body>
+
+
+    <div id="title">
+      <img src="images\The_Spelling_Game-removebg-preview-Picsart-AiImageEnhancer.png" alt="The Spelling Game" id="gamelogo">
+    </div>
+
+    <div id="contentbox">
+      <div id="content">
+
+        <div id="birdie">
+          <img src="images\cartoonparakeet.png" alt="Mr. Keets" id="MrKeets">
+        </div>
+
+        <div id="speechbubble">
+          <p id="speechbox">Spell as many words correctly as you can !!!</p>
+          <span id="bubble1"></span>
+          <span id="bubble2"></span>
+          <span id="bubble3"></span>
+        </div>
+
+        <div id="startbutton">
+          <p id="buttontext">Press the button to start spelling!</p>
+          <button type="button" id="start" onclick="setTimeout (showForms, 200);">Start the Game</button>
+        </div>
+
+        <div id="forms">
+          <p class="para">Are You A Parent?</p>
+        <form>
+          <input type="radio" id="inputyes" name="yesorno" value="Yes" onclick="activatecsv()">         
+          <label for="yesorno" class="label" >Yes</label>
+          <input type="radio" id="inputno" name="yesorno" value="No" onclick="activatesubmit()">
+          <label for="yesorno" class="label" >No</label>
+        <br>
+        <br>
+        <br>
+          <input type="file" id="csvFileInput" accept=".csv" disabled/>
+        <br>
+        <br>
+        <br>
+          <input type="button" id="submitbutton" value="Proceed" onclick="setTimeout(showSpellingProper(), 400)" disabled>
+        </form>
+
+        </div>
+
+        <div id="spellingproper">
+          <form id="input" onsubmit="checkinput()">
+            <input type="text" id="inputbox" autocomplete="off" spellcheck="false">
+          </form>
+        </div>
+
+        <div id="reutter">
+          <button type="button" id="repeat" onclick="stateWords()">Repeat Word 🔊 </button>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div id="footer"></div>
+    
+    <script src="spellingScript.js"></script>
+
+  </body>
+</html>
