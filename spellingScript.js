@@ -1,0 +1,162 @@
+
+let words = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "january", "febuary", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+const feedback = document.getElementById("speechbox");
+let currentIndex = 0;
+
+document.getElementById("csvFileInput").addEventListener("change", function (event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    const text = e.target.result;
+
+    // Split the CSV text into lines, then into array of words
+    words = text.trim().split('\n').map(line => line.trim());
+
+    if (words.length > 0) {
+      feedback.innerHTML = "CSV loaded! Ready to begin.";
+      currentIndex = 0;
+      showSpellingProper(); // Start your game with the first word
+    } else {
+      feedback.innerHTML = "CSV file was empty.";
+    }
+  };
+
+  reader.onerror = function () {
+    feedback.innerHTML = "Error reading file.";
+  };
+
+  reader.readAsText(file);
+});
+
+function showForms() {
+  document.getElementById("forms").style.display="block";
+  document.getElementById("startbutton").style.display="none";
+  document.getElementById("birdie").style.display="none";
+  document.getElementById("speechbubble").style.display="none";
+}
+
+
+const csvFile = document.getElementById("csvFileInput");
+const submit = document.getElementById("submitbutton");
+
+function activatecsv() {
+  csvFile.removeAttribute("disabled", true);
+  submit.removeAttribute("disabled");
+}
+
+function activatesubmit() {
+  document.getElementById("csvFileInput").disabled = "true"
+  submit.removeAttribute("disabled");
+}
+
+
+
+function showSpellingProper() {
+  document.getElementById("birdie").style.display="block";
+  document.getElementById("speechbubble").style.display="block";
+  document.getElementById("forms").style.display="none";
+  document.getElementById("startbutton").style.display="none";
+  document.getElementById("birdie").style.width="70%";
+  document.getElementById("birdie").style.height="100%";
+  document.getElementById("MrKeets").style.marginTop="0%";
+  document.getElementById("speechbubble").style.width="85%";
+  document.getElementById("speechbubble").style.top="-8%";
+  document.getElementById("speechbubble").style.left="-40%";
+  document.getElementById("speechbox").style.fontSize="150%";
+  document.getElementById("speechbox").style.borderWidth="6px";
+  document.getElementById("speechbox").style.padding="4%";
+  document.getElementById("spellingproper").style.display="flex";
+  document.getElementById("repeat").style.display="inline-block";
+
+  feedback.innerHTML = "Hmm... How do you spell this word?";
+
+  setTimeout(() => {
+    speak(words[currentIndex]);
+  }, 700)
+  
+
+}
+
+function speak(text) {
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "en-US";
+  speechSynthesis.speak(utterance);
+}
+
+function stateWords() {
+  speechSynthesis.cancel()
+  speak(words[currentIndex]);
+
+}
+
+const form = document.getElementById("input");
+
+form.addEventListener("submit", function(event){
+  event.preventDefault()
+});
+
+function checkinput () {
+  const input = document.getElementById("inputbox");
+  const bird = document.getElementById("birdie");
+  const bubble = document.getElementById("speechbox"); 
+
+  if (input.value.toLowerCase() === words[currentIndex]) {  
+    const goodJob = new SpeechSynthesisUtterance('Correct, Great Job!') 
+    goodJob.lang = "en-GB" 
+    goodJob.pitch = "1.70"
+    currentIndex++;
+    feedback.innerHTML = "Correct, Great Job!"
+    speechSynthesis.speak(goodJob);
+    document.getElementById("speechbox").style.background=" rgba(207, 250, 243, 1)";
+    bird.animate([
+      { transform : 'rotate(2deg)'},
+      { transform : 'rotate(-4deg)' },
+      { transform : 'rotate(4deg)' },
+      { transform : 'rotate(-4deg)' },
+      { transform : 'rotate(4deg)' },
+      { transform : 'rotate(-2deg)' }
+    ], 700)
+
+    bubble.animate([
+      { transform : 'rotate(0.3deg)'},
+      { transform : 'rotate(-0.6deg)' },
+      { transform : 'rotate(0.6deg)' },
+      { transform : 'rotate(-0.6deg)' },
+      { transform : 'rotate(0.6deg)' },
+      { transform : 'rotate(-0.3deg)' }
+    ], 700)
+
+    
+
+     hintTimeout = setTimeout(() => {
+      document.getElementById("speechbox").style.background=" rgb(229, 253, 253)";
+      feedback.innerHTML = "Hmm... How do you spell this word?"
+    }, 1000)
+
+    if (input.value.toLowerCase() !== words[currentIndex]) {
+      
+    }  
+
+    
+    if (currentIndex < words.length) {
+      setTimeout(() => {
+      input.value = "";
+      speak(words[currentIndex]);
+      }, 1000);
+    } else {
+      clearTimeout(hintTimeout)
+      const correct = new SpeechSynthesisUtterance('Well Done!');
+      correct.lang = "en-GB";
+      correct.pitch = "1.70"
+      speechSynthesis.speak(correct);
+      feedback.innerHTML = "You answered everything correctly!";
+      document.getElementById("speechbox").style.background=" rgba(207, 250, 243, 1)";
+      input.disabled = true;
+
+      setTimeout (() => {
+        input.value = "";
+      }, 1000)
+    } 
+  }
+}

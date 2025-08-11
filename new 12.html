@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Word Spelling Practice</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 60px; }
+    input { font-size: 1.5rem; padding: 10px; width: 300px; }
+    button { font-size: 1.2rem; padding: 10px 20px; margin-top: 20px; }
+    #feedback { font-size: 1.2rem; margin-top: 10px; height: 1.5rem; }
+  </style>
+</head>
+<body>
+
+  <h1>Spelling Game</h1>
+
+  <button onclick="startGame()">▶️ Speak</button><br><br>
+
+  <input id="answer" type="text" placeholder="" oninput="checkAnswer()" disabled />
+  <div id="feedback"></div>
+
+  <script>
+    const words = ["apple", "banana", "grape", "orange", "kiwi"];
+    let currentIndex = 0;
+
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "en-US";
+      speechSynthesis.speak(utterance);
+    }
+
+    function startGame() {
+      document.getElementById("answer").disabled = false;
+      //document.getElementById("answer").value = "";
+      document.getElementById("feedback").textContent = "";
+      document.getElementById("answer").focus();
+      speak(words[currentIndex]);
+    }
+
+    function checkAnswer() {
+      const input = document.getElementById("answer");
+      const feedback = document.getElementById("feedback");
+
+      if (input.value.toLowerCase() === words[currentIndex]) {
+        const correct = new SpeechSynthesisUtterance('Correct, good job!');
+        correct.lang = "en-US";
+        speechSynthesis.speak(correct);
+
+        feedback.textContent = "✅ Correct!";
+        currentIndex++;
+
+        if (currentIndex < words.length) {
+          setTimeout(() => {
+            input.value = "";
+            feedback.textContent = "";
+            speak(words[currentIndex]);
+          }, 1000);
+        } else {
+          feedback.textContent = "🎉 All words completed!";
+          input.disabled = true;
+        }
+      } else {
+        feedback.textContent = "";
+      }
+    }
+  </script>
+
+</body>
+</html>
