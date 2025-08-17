@@ -245,6 +245,20 @@ body {
   display: none;
 }
 
+#mistakecount {
+  display: none;
+  width: 30%;
+  height: 10%;
+  border: 6px solid #66b1ff;
+  border-radius: 20px;
+  text-align: center;
+  padding-top: 1%;
+  background-color: #dcffed;
+  font-size: 150%;
+  font-family: Comic Sans MS;
+  position: relative;
+}
+
 #start:hover {
   background-color: rgb(255, 197, 90);
   border-color: rgb(72, 142, 247);

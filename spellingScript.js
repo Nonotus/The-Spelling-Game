@@ -2,6 +2,7 @@
 let words = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "january", "febuary", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 const feedback = document.getElementById("speechbox");
 let currentIndex = 0;
+let mistakes = 0;
 
 document.getElementById("csvFileInput").addEventListener("change", function (event) {
   const file = event.target.files[0];
@@ -68,6 +69,7 @@ function showSpellingProper() {
   document.getElementById("speechbox").style.padding="4%";
   document.getElementById("spellingproper").style.display="flex";
   document.getElementById("repeat").style.display="inline-block";
+  document.getElementById("mistakecount").style.display="block";
 
   feedback.innerHTML = "Hmm... How do you spell this word?";
 
@@ -96,19 +98,11 @@ form.addEventListener("submit", function(event){
   event.preventDefault()
 });
 
-function checkinput () {
   const input = document.getElementById("inputbox");
   const bird = document.getElementById("birdie");
   const bubble = document.getElementById("speechbox"); 
 
-  if (input.value.toLowerCase() === words[currentIndex]) {  
-    const goodJob = new SpeechSynthesisUtterance('Correct, Great Job!') 
-    goodJob.lang = "en-GB" 
-    goodJob.pitch = "1.70"
-    currentIndex++;
-    feedback.innerHTML = "Correct, Great Job!"
-    speechSynthesis.speak(goodJob);
-    document.getElementById("speechbox").style.background=" rgba(207, 250, 243, 1)";
+function nextIndex() {
     bird.animate([
       { transform : 'rotate(2deg)'},
       { transform : 'rotate(-4deg)' },
@@ -126,18 +120,25 @@ function checkinput () {
       { transform : 'rotate(0.6deg)' },
       { transform : 'rotate(-0.3deg)' }
     ], 700)
+}
 
+function checkinput () {
+
+  if (input.value.toLowerCase().trim() === words[currentIndex]) {  
     
-
+    const goodJob = new SpeechSynthesisUtterance('Correct, Great Job!') ;
+    goodJob.lang = "en-GB"; 
+    goodJob.pitch = "1.70";
+    currentIndex++;
+    feedback.innerHTML = "Correct, Great Job!";
+    speechSynthesis.speak(goodJob);
+    document.getElementById("speechbox").style.background=" rgba(207, 250, 243, 1)";
+    nextIndex();
+    
      hintTimeout = setTimeout(() => {
       document.getElementById("speechbox").style.background=" rgb(229, 253, 253)";
       feedback.innerHTML = "Hmm... How do you spell this word?"
     }, 1000)
-
-    if (input.value.toLowerCase() !== words[currentIndex]) {
-      
-    }  
-
     
     if (currentIndex < words.length) {
       setTimeout(() => {
@@ -158,5 +159,26 @@ function checkinput () {
         input.value = "";
       }, 1000)
     } 
+  } else {
+    const incorrect = new SpeechSynthesisUtterance('Sorry, that is incorrect!');
+    incorrect.lang = "en-GB";
+    incorrect.pitch = "1.70";
+
+    document.getElementById("speechbox").style.background="rgba(253, 229, 229, 1)";
+    feedback.innerHTML = "Sorry, that is incorrect!";
+
+    speechSynthesis.cancel()
+    speechSynthesis.speak(incorrect);
+    
+    mistakes++;
+    document.getElementById("mistakecount").innerHTML = mistakes + " " + "Mistakes";
+    document.getElementById("mistakecount").style.background="rgba(253, 229, 229, 1)";
+
+    nextIndex();
+
+    hintTimeout2 = setTimeout(() => {
+      document.getElementById("speechbox").style.background=" rgb(229, 253, 253)";
+      feedback.innerHTML = "Hmm... How do you spell this word?"
+    }, 1000)
   }
 }
