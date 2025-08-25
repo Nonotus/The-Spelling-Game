@@ -25,7 +25,6 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2fr 1fr;
   width: 85%;
-  height: 100%;
   height: 575px;
   background-color: rgb(207, 236, 255);
   border: 10px solid rgb(75, 147, 241);
@@ -135,14 +134,17 @@ body {
   position: relative;
   top: 24%;
   left: -35%;
+  width: 100%;
+  text-align: center;
 }
 
 #startbutton {
   align-content: center;
+  position: relative;
 }
 
 #start {
-  width: 145%;
+  width: 128%;
   height: 120px;
   background-color: rgb(243, 218, 172);
   border: 10px solid rgb(76, 165, 248);
@@ -157,7 +159,7 @@ body {
   font-weight: bold;
   position: relative;
   top: 20%;
-  left: -65%;
+  left: -57%;
   transition-duration: 0.3s;
 }
 
@@ -284,6 +286,136 @@ body {
   box-shadow: 1.5px 2.5px rgb(144 158 181);
   transform: translateY(5px);
 }
+
+@media (max-width: 1735px) {
+  #speechbox {
+    border: 6px solid #5589c9;
+    width: 90%;
+
+  }
+  #buttontext {
+    font-family: comic sans MS;
+    font-size: 185%;
+    position: relative;
+    top: 24%;
+    left: -40%;
+  }
+}
+
+@media (max-width: 1735px) {
+  #speechbox {
+    border: 6px solid #5589c9;
+    width: 90%;
+
+  }
+  #buttontext {
+    font-size: 185%;
+    position: relative;
+    top: 24%;
+    left: -40%;
+  }
+}
+
+@media (max-width: 1105px) {
+  #speechbox {
+    width: 110%;
+
+  }
+  #buttontext {
+    font-size: 160%;
+    left: -60%;
+    width: 154%;
+  }
+  #startbutton {
+    top: 15%;
+    left: -20%;
+  }  
+  #start {
+    width: 145%;
+    height: 95px;
+    border: 7px solid rgb(76, 165, 248);
+    font-size: 220%;
+  }
+  #content {
+    height: 490px;
+  }
+}
+
+@media (max-width: 630px) {
+  #gamelogo {
+    width: 50%;
+    height: 250px;
+  }
+  #speechbox {
+    width: 180%;
+
+  }
+  #buttontext {
+    font-size: 130%;
+    left: -55%;
+    width: 200%;
+  }
+  #startbutton {
+    top: 30%;
+    left: -93%;
+  }  
+  #start {
+    width: 200%;
+    height: 90px;
+    font-size: 220%;
+  }
+  #speechbubble {
+    left: -5%;
+  }
+  #content {
+    height: 490px;
+  }
+  #MrKeets {
+    width: 115%;
+    height: 73%;
+    margin-top: 10%;
+  }
+}
+
+@media (max-width: 630px) {
+  #gamelogo {
+    width: 65%;
+    height: 250px;
+  }
+  #speechbox {
+    width: 158%;
+    font-size: 85%;
+
+  }
+  #buttontext {
+    font-size: 117%;
+    left: -82%;
+    width: 288%;
+  }
+  #startbutton {
+    top: 30%;
+    left: -106%;
+  }  
+  #start {
+    width: 234%;
+    height: 90px;
+    font-size: 175%;
+  }
+  #speechbubble {
+    left: 25%;
+    top: 5%;
+  }
+  #MrKeets {
+    width: 159%;
+    height: 61%;
+    margin-top: 35%;
+    position: relative;
+    left: 19%;
+ }
+}
+
+
+
 
 
 
