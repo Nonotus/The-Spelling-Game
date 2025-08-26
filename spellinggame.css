@@ -2,6 +2,7 @@
 body {
   height: 100%;
   background-color: #5dc2eb;
+  overflow: hidden;
 }
 
 #title {
@@ -171,7 +172,9 @@ body {
   border: 10px dashed #7aa2fd;
   text-align-last: center;
   position: relative;
-  top: 25%;
+  top: 10%;
+  left: -11%;
+  width: 120%;
 }
 
 #inputyes {
@@ -185,7 +188,7 @@ body {
 }
 
 .label {
-  font-size: 180%;
+  font-size: 240%;
   font-family: Comic Sans MS;
   padding-right: 5%;
 }
@@ -195,6 +198,7 @@ body {
   font-size: 250%;
   color: #4387db;
   font-weight: bold;
+  text-align: center;
 }
 
 #submitbutton {
@@ -206,6 +210,7 @@ body {
   font-family: verdana;
   font-size: 100%;
   font-weight: bold;
+  margin-bottom: 7%;
 }
 
 #spellingproper {
@@ -228,7 +233,9 @@ body {
   font-family: comic sans MS;
   font-size: 300%;
   position: relative;
+  top: 20%;
   left: -70%;
+
   
 }
 
@@ -242,14 +249,29 @@ body {
   font-family: Verdana;
   font-size: 125%;
   position: relative;
-  top: 76%;
+  top: 66%;
   left: -80%;
   display: none;
 }
 
+#wordsubmit {
+  position: relative;
+  top: 45%;
+  left: -69%;
+  width: 50%;
+  height: 16%;
+  background: #fdd07e;
+  border: 5px solid #7bd3d7;
+  border-radius: 59px;
+  box-shadow: 3px 5px rgb(181 171 144);
+  font-family: Comic Sans MS;
+  font-size: 125%;
+  display:none;
+}
+
 #mistakecount {
   display: none;
-  width: 30%;
+  width: 50%;
   height: 10%;
   border: 6px solid #66b1ff;
   border-radius: 20px;
@@ -258,7 +280,10 @@ body {
   background-color: #dcffed;
   font-size: 150%;
   font-family: Comic Sans MS;
+  align-content:center;
   position: relative;
+  top: -10%;
+  left: 30%;
 }
 
 #start:hover {
@@ -284,13 +309,19 @@ body {
 #repeat:active {
   background-color: rgb(135, 255, 229);
   box-shadow: 1.5px 2.5px rgb(144 158 181);
-  transform: translateY(5px);
+  transform: translateY(3px);
+}
+
+#wordsubmit:active {
+  background-color: rgb(210, 230, 99);
+  box-shadow: 1.5px 2.5px rgb(148, 134, 78);
+  transform: translateY(3px);
 }
 
 @media (max-width: 1735px) {
   #speechbox {
     border: 6px solid #5589c9;
-    width: 90%;
+    width: 90% !important;
 
   }
   #buttontext {
@@ -317,8 +348,12 @@ body {
 }
 
 @media (max-width: 1105px) {
+    #gamelogo {
+    width: 35%;
+    height: 250px;
+  }
   #speechbox {
-    width: 110%;
+    width: 110% !important;
 
   }
   #buttontext {
@@ -339,16 +374,68 @@ body {
   #content {
     height: 490px;
   }
+  #wordsubmit {
+    top: 45%;
+    left: -74%;
+    width: 60%;
+    font-size: 114%;
+  }
+  #inputbox {
+    height: 47%;
+    font-size: 270%;
+  }
+  #mistakecount {
+    font-size: 140%;
+  }
+  .para {
+    font-size: 200%;
+  }
+  .label {
+    font-size: 150%;
+  }
 }
 
-@media (max-width: 630px) {
-  #gamelogo {
-    width: 50%;
-    height: 250px;
+@media (max-width: 950px) {
+  #mistakecount{
+    font-size: 100%;
+    border: 4px solid #66b1ff;
+  }
+  #repeat {
+    font-size: 99%;
+    top: 66%;
+  }
+  #wordsubmit {
+    top: 49%;
+    left: -74%;
+    width: 60%;
+    font-size: 90%;
+  }
+  #inputbox {
+    height: 40%;
+    font-size: 260%;
   }
   #speechbox {
-    width: 180%;
+    font-size: 115% !important;
+    border-width: 6px !important;
+    padding: 4%;
+    background: rgb(229, 253, 253);
+  }
+  #MrKeets {
+    width: 100%;
+    height: 75%;
+  }
 
+}
+ 
+
+
+@media (max-width: 630px) {
+  #speechbox {
+    font-size: 94% !important;
+    border-width: 6px;
+    padding: 4%;
+    background: rgb(229, 253, 253);
+    width: 185% !important;
   }
   #buttontext {
     font-size: 130%;
@@ -365,55 +452,46 @@ body {
     font-size: 220%;
   }
   #speechbubble {
-    left: -5%;
+    width: 85%;
+    top: -6%;
+    left: -10% !important;
   }
   #content {
     height: 490px;
   }
-  #MrKeets {
-    width: 115%;
-    height: 73%;
-    margin-top: 10%;
-  }
-}
-
-@media (max-width: 630px) {
-  #gamelogo {
-    width: 65%;
-    height: 250px;
-  }
-  #speechbox {
-    width: 158%;
-    font-size: 85%;
-
-  }
-  #buttontext {
-    font-size: 117%;
-    left: -82%;
-    width: 288%;
-  }
-  #startbutton {
-    top: 30%;
-    left: -106%;
-  }  
-  #start {
-    width: 234%;
-    height: 90px;
-    font-size: 175%;
-  }
-  #speechbubble {
-    left: 25%;
+  #mistakecount {
     top: 5%;
+    left: -60%;
+    width: 70%;
+    height: 8%;
+    font-size: 96%;
+  }
+  #repeat {
+    font-size: 85%;
+    top: 66%;
+    left: -90%;
+    width: 88%;
+  }
+  #wordsubmit {
+    top: 52%;
+    left: -83%;
+    width: 75%;
+    height: 12%;
+    font-size: 80%;
+    border-width: 4px;
+  }
+  #inputbox {
+    height: 40%;
+    font-size: 250%;
   }
   #MrKeets {
-    width: 159%;
-    height: 61%;
-    margin-top: 35%;
-    position: relative;
-    left: 19%;
- }
+  width: 159%;
+  height: 61%;
+  margin-top: 35%;
+  position: relative;
+  left: -9%;
+  }
 }
-
 
 
 

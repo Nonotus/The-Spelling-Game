@@ -43,15 +43,7 @@ const submit = document.getElementById("submitbutton");
 
 function activatecsv() {
   csvFile.removeAttribute("disabled", true);
-  submit.removeAttribute("disabled");
 }
-
-function activatesubmit() {
-  document.getElementById("csvFileInput").disabled = "true"
-  submit.removeAttribute("disabled");
-}
-
-
 
 function showSpellingProper() {
   document.getElementById("birdie").style.display="block";
@@ -69,8 +61,9 @@ function showSpellingProper() {
   document.getElementById("speechbox").style.padding="4%";
   document.getElementById("spellingproper").style.display="flex";
   document.getElementById("repeat").style.display="inline-block";
+  document.getElementById("wordsubmit").style.display="inline-block";
   document.getElementById("mistakecount").style.display="block";
-
+  
   feedback.innerHTML = "Hmm... How do you spell this word?";
 
   setTimeout(() => {

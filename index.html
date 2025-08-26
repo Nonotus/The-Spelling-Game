@@ -37,11 +37,11 @@
         </div>
 
         <div id="forms">
-          <p class="para">Are You A Parent?</p>
+          <p class="para">Would you like to upload your own words?</p>
         <form>
           <input type="radio" id="inputyes" name="yesorno" value="Yes" onclick="activatecsv()">         
           <label for="inputyes" class="label" >Yes</label>
-          <input type="radio" id="inputno" name="yesorno" value="No" onclick="activatesubmit()">
+          <input type="radio" id="inputno" name="yesorno" value="No" onclick="" checked>
           <label for="inputno" class="label" >No</label>
         <br>
         <br>
@@ -50,7 +50,7 @@
         <br>
         <br>
         <br>
-          <input type="button" id="submitbutton" value="Proceed" onclick="setTimeout(showSpellingProper(), 400)" disabled>
+          <input type="button" id="submitbutton" value="Proceed" onclick="setTimeout(showSpellingProper(), 400)">
         </form>
 
         </div>
@@ -63,6 +63,8 @@
 
         <div id="reutter">
           <button type="button" id="repeat" onclick="stateWords()">Repeat Word 🔊 </button>
+          <p id="mistakecount">0 Mistakes</p>
+          <button type="button" id="wordsubmit" onclick="checkinput()">Submit Answer</button>
           <p id="mistakecount">0 Mistakes</p>
         </div>
 
