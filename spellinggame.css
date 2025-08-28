@@ -453,8 +453,8 @@ body {
   }
   #speechbubble {
     width: 85%;
-    top: -6%;
-    left: -10% !important;
+    top: -5% !important;
+    left: 3% !important;
   }
   #content {
     height: 490px;
@@ -486,10 +486,10 @@ body {
   }
   #MrKeets {
   width: 159%;
-  height: 61%;
+  height: 56%;
   margin-top: 35%;
   position: relative;
-  left: -9%;
+  left: 8%;
   }
 }
 
