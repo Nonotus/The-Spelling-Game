@@ -347,9 +347,11 @@ body {
   #buttontext { 
     font-size: 175%;
   }
+
   #speechbox {
     font-size: 140%;
   }
+
     #inputbox {
     width: 90%;
   }
@@ -382,18 +384,38 @@ body {
     #buttontext { 
     margin: 3%;
   }
+
     #input {
       position: static;
     }
 }
 
 @media screen and (max-width: 840px) {
+  #gamelogo {
+    width: 45%;
+  }
+
   #mistakecount {
     height: 38%;
     font-size: 95%;
   }
+
   #input {
     margin-top: 10%;
+  }
+}
+
+@media screen and (max-width: 585px) {
+  #gamelogo {
+    width: 55%;
+  }
+
+  .para {
+    font-size: 180%;
+  }
+
+  .label {
+    font-size: 160%;
   }
 }
   

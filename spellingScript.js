@@ -45,18 +45,18 @@ function activatecsv() {
 }
 
 function showSpellingProper() {
+
   document.getElementById("forms").style.display="none";
   document.getElementById("row1").style.display="flex";
   document.getElementById("mispel").style.display="block";
   document.getElementById("row3").style.display="flex";
-  document.getElementById("row4").style.display="flex";
-}
 
   feedback.innerHTML = "Hmm... How do you spell this word?";
 
   setTimeout(() => {
     speak(words[currentIndex]);
   }, 700)
+}
 
 function speak(text) {
   const utterance = new SpeechSynthesisUtterance(text);
