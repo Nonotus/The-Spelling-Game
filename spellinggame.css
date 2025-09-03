@@ -12,7 +12,7 @@ body {
 
 #gamelogo {
   width: 25%;
-  height: 250px;
+  height: auto;
 }
 
 #contentbox {
