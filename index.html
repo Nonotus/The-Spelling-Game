@@ -20,21 +20,31 @@
     <div id="contentbox">
       <div id="content">
 
-        <div id="birdie">
-          <img src="images\cartoonparakeet.png" alt="Mr. Keets" id="MrKeets">
-        </div>
 
-        <div id="speechbubble"> <!--edited -->
-          <p id="speechbox">Spell as many words correctly as you can !!!</p>
-          <span id="bubble1"></span>
-          <span id="bubble2"></span>
-          <span id="bubble3"></span>
-        </div>
+      <div id="row1">
+        <div id="birddialog">
+          <div id="birdie">
+            <img src="images\cartoonparakeet.png" alt="Mr. Keets" id="MrKeets">
+          </div>
 
+          <div id="speechbubble"> <!--edited -->
+            <p id="speechbox">Spell as many words correctly as you can !!!</p>
+            <span id="bubble1"></span>
+            <span id="bubble2"></span>
+            <span id="bubble3"></span>
+          </div>
+        </div>
+        <div id="mispel">
+          <p id="mistakecount">0 Mistakes</p>
+        </div>
+      </div>
+
+      <div id="row2">
         <div id="startbutton">
           <p id="buttontext">Press the button to start spelling!</p>
           <button type="button" id="start" onclick="setTimeout (showForms, 200);">Start the Game</button>
         </div>
+      </div>
 
         <div id="forms">
           <p class="para">Would you like to upload your own words?</p>
@@ -52,23 +62,19 @@
         <br>
           <input type="button" id="submitbutton" value="Proceed" onclick="setTimeout(showSpellingProper(), 400)">
         </form>
-
         </div>
 
+      <div id="row3">
         <div id="spellingproper">
           <form id="input" onsubmit="checkinput()">
+            <button type="button" id="repeat" onclick="stateWords()">Repeat Word 🔊 </button>
             <input type="text" id="inputbox" autocomplete="off" spellcheck="false">
+            <button type="button" id="wordsubmit" onclick="checkinput()">Submit Answer</button>
           </form>
         </div>
-
-        <div id="reutter">
-          <button type="button" id="repeat" onclick="stateWords()">Repeat Word 🔊 </button>
-          <p id="mistakecount">0 Mistakes</p>
-          <button type="button" id="wordsubmit" onclick="checkinput()">Submit Answer</button>
-          <p id="mistakecount">0 Mistakes</p>
-        </div>
-
       </div>
+
+      </div>  
     </div>
     
     <script src="spellingScript.js"></script>

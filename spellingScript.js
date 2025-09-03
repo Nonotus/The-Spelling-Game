@@ -32,9 +32,8 @@ document.getElementById("csvFileInput").addEventListener("change", function (eve
 
 function showForms() {
   document.getElementById("forms").style.display="block";
-  document.getElementById("startbutton").style.display="none";
-  document.getElementById("birdie").style.display="none";
-  document.getElementById("speechbubble").style.display="none";
+  document.getElementById("row1").style.display="none";
+  document.getElementById("row2").style.display="none";
 }
 
 
@@ -46,32 +45,18 @@ function activatecsv() {
 }
 
 function showSpellingProper() {
-  document.getElementById("birdie").style.display="block";
-  document.getElementById("speechbubble").style.display="block";
   document.getElementById("forms").style.display="none";
-  document.getElementById("startbutton").style.display="none";
-  document.getElementById("birdie").style.width="70%";
-  document.getElementById("birdie").style.height="100%";
-  document.getElementById("MrKeets").style.marginTop="0%";
-  document.getElementById("speechbubble").style.width="85%";
-  document.getElementById("speechbubble").style.top="-8%";
-  document.getElementById("speechbubble").style.left="-40%";
-  document.getElementById("speechbox").style.fontSize="150%";
-  document.getElementById("speechbox").style.borderWidth="6px";
-  document.getElementById("speechbox").style.padding="4%";
-  document.getElementById("spellingproper").style.display="flex";
-  document.getElementById("repeat").style.display="inline-block";
-  document.getElementById("wordsubmit").style.display="inline-block";
-  document.getElementById("mistakecount").style.display="block";
-  
+  document.getElementById("row1").style.display="flex";
+  document.getElementById("mispel").style.display="block";
+  document.getElementById("row3").style.display="flex";
+  document.getElementById("row4").style.display="flex";
+}
+
   feedback.innerHTML = "Hmm... How do you spell this word?";
 
   setTimeout(() => {
     speak(words[currentIndex]);
   }, 700)
-  
-
-}
 
 function speak(text) {
   const utterance = new SpeechSynthesisUtterance(text);

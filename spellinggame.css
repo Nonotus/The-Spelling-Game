@@ -2,7 +2,6 @@
 body {
   height: 100%;
   background-color: #5dc2eb;
-  overflow: hidden;
 }
 
 #title {
@@ -18,14 +17,15 @@ body {
 
 #contentbox {
   display: flex;
+  width: 80%;
+  margin: 0 auto;
   justify-content: center;
 }
 
 #content {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 2fr 1fr;
-  width: 85%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   height: 575px;
   background-color: rgb(207, 236, 255);
   border: 10px solid rgb(75, 147, 241);
@@ -33,9 +33,19 @@ body {
   box-shadow: 10px 10px rgb(125, 207, 245);
 }
 
+#row1 {
+  display: flex;
+}
+
+#birddialog {
+  display: flex;
+  width: 75%;
+}
+
 #birdie{
   display: flex;
-  justify-content: center;
+  width: 30%;
+  height: auto;
 }
 
 #birdie:hover {
@@ -52,31 +62,25 @@ body {
 
 }
 
-
 #MrKeets {
-  width: 90%;
-  height: 80%;
-  margin-top: 18%;
+  width: 100%;
+  height: auto;
 }
 
 #speechbubble {
-  margin-top: 8%;
-  position: relative;
-  left: -18%;
+  width: 60%;
 }
 
 #speechbox {
   border: 8px solid #5589c9;
   border-radius: 50px;
-  width: 110%;
+  width: 90%;
   height: auto;
-  padding: 4.5%;
+  padding:2.5%;
   text-align: center;
   background: rgb(229, 253, 253);
-  position: relative;
-  z-index: 1;
   font-family: Comic Sans MS;
-  font-size: 157%;
+  font-size: 160%;
   font-weight: 900;
 }
 
@@ -116,8 +120,6 @@ body {
   left: 6.8%;
 }
 
-
-
 #bubble3 { 
   height: 8%;
   width: 10%;
@@ -129,38 +131,40 @@ body {
   left: 5%;
 }
 
-#buttontext {
-  font-family: comic sans MS;
-  font-size: 185%;
-  position: relative;
-  top: 24%;
-  left: -35%;
-  width: 100%;
-  text-align: center;
+#row2 {
+  display: flex;
+  justify-content: center;
+  height: 100%;
 }
 
 #startbutton {
-  align-content: center;
   position: relative;
+  align-content: center;
+  height: 100%;
+  width: 43%;
+  margin-left: 30%;
+  top: -42%;
+}
+
+#buttontext {
+  font-family: comic sans MS;
+  font-size: 210%;
+  width: 105%;
+  margin: 2%;
+  text-align: center;
 }
 
 #start {
-  width: 128%;
-  height: 120px;
+  width: 110%;
+  height: 57%;
   background-color: rgb(243, 218, 172);
   border: 10px solid rgb(76, 165, 248);
   border-radius: 50px;
   box-shadow: 6px 10px rgb(95 126 173);
-  position: relative;
-  top: 20%;
-  left: -65%;
   color: #137777;
   font-family: Verdana;
   font-size: 235%;
   font-weight: bold;
-  position: relative;
-  top: 20%;
-  left: -57%;
   transition-duration: 0.3s;
 }
 
@@ -171,10 +175,9 @@ body {
   background: #d7faff;
   border: 10px dashed #7aa2fd;
   text-align-last: center;
-  position: relative;
-  top: 10%;
-  left: -11%;
-  width: 120%;
+  margin-top: 6%;
+  width: 65%;
+  align-self: center;
 }
 
 #inputyes {
@@ -214,76 +217,80 @@ body {
 }
 
 #spellingproper {
-  grid-row: 2;
-  grid-column: 2;
-  justify-content: center;
-  display: none;
+  text-align: center;
 } 
 
 #input {
   width: 100%;
+  height: 100%;
+  position: relative;
+  top: -38%;
 }
 
 #inputbox {
-  width: 240%;
-  height: 50%;
+  width: 100%;
+  height: 40%;
   border: 6px solid #63b1ff;
   border-radius: 20px;
   box-shadow: 3px 6px #7fa1b1;
   font-family: comic sans MS;
   font-size: 300%;
-  position: relative;
-  top: 20%;
-  left: -70%;
-
   
 }
 
+#row3 { 
+  display: none;
+  justify-content: center;
+} 
+
+#row4 {
+  display: none;
+}
+
 #repeat {
-  width: 70%;
-  height: 16%;
+  width: 32%;
+  height: 30%;
+  margin-bottom: 2%;
   background: aliceblue;
   border: 5px solid skyblue;
   border-radius: 20px;
   box-shadow: 3px 5px rgb(144 158 181);
   font-family: Verdana;
   font-size: 125%;
-  position: relative;
-  top: 66%;
-  left: -80%;
-  display: none;
 }
 
 #wordsubmit {
-  position: relative;
-  top: 45%;
-  left: -69%;
-  width: 50%;
-  height: 16%;
+  width: 40%;
+  height: 35%;
+  margin-top: 3%;
   background: #fdd07e;
   border: 5px solid #7bd3d7;
   border-radius: 59px;
   box-shadow: 3px 5px rgb(181 171 144);
   font-family: Comic Sans MS;
   font-size: 125%;
-  display:none;
+}
+
+#mispel {
+  width: 15%;
+  display: none;
 }
 
 #mistakecount {
-  display: none;
-  width: 50%;
+  width: 100%;
   height: 10%;
   border: 6px solid #66b1ff;
   border-radius: 20px;
   text-align: center;
-  padding-top: 1%;
+  margin-top: 30%;
+  margin-left: 25%;
+  padding: 1%;
   background-color: #dcffed;
   font-size: 150%;
   font-family: Comic Sans MS;
   align-content:center;
-  position: relative;
-  top: -10%;
-  left: 30%;
+
+
 }
 
 #start:hover {
@@ -318,180 +325,80 @@ body {
   transform: translateY(3px);
 }
 
-@media (max-width: 1735px) {
-  #speechbox {
-    border: 6px solid #5589c9;
-    width: 90% !important;
-
-  }
-  #buttontext {
-    font-family: comic sans MS;
-    font-size: 185%;
-    position: relative;
-    top: 24%;
-    left: -40%;
-  }
-}
-
-@media (max-width: 1735px) {
-  #speechbox {
-    border: 6px solid #5589c9;
-    width: 90%;
-
-  }
-  #buttontext {
-    font-size: 185%;
-    position: relative;
-    top: 24%;
-    left: -40%;
-  }
-}
-
-@media (max-width: 1105px) {
-    #gamelogo {
+@media screen and (max-width: 1515px) {
+  #birdie {
     width: 35%;
-    height: 250px;
   }
-  #speechbox {
-    width: 110% !important;
 
-  }
-  #buttontext {
-    font-size: 160%;
-    left: -60%;
-    width: 154%;
-  }
   #startbutton {
-    top: 15%;
-    left: -20%;
-  }  
-  #start {
-    width: 145%;
-    height: 95px;
-    border: 7px solid rgb(76, 165, 248);
-    font-size: 220%;
+    top: -20%;
   }
-  #content {
-    height: 490px;
+
+  #start{ 
+    height: 42%;
   }
-  #wordsubmit {
-    top: 45%;
-    left: -74%;
-    width: 60%;
-    font-size: 114%;
-  }
-  #inputbox {
-    height: 47%;
-    font-size: 270%;
-  }
-  #mistakecount {
-    font-size: 140%;
-  }
-  .para {
+
+  #buttontext { 
     font-size: 200%;
   }
-  .label {
-    font-size: 150%;
+}
+
+@media screen and (max-width: 1445px) {
+  #buttontext { 
+    font-size: 175%;
+  }
+  #speechbox {
+    font-size: 140%;
+  }
+    #inputbox {
+    width: 90%;
   }
 }
 
-@media (max-width: 950px) {
-  #mistakecount{
-    font-size: 100%;
-    border: 4px solid #66b1ff;
-  }
-  #repeat {
-    font-size: 99%;
-    top: 66%;
-  }
-  #wordsubmit {
-    top: 49%;
-    left: -74%;
-    width: 60%;
-    font-size: 90%;
-  }
-  #inputbox {
-    height: 40%;
-    font-size: 260%;
-  }
-  #speechbox {
-    font-size: 115% !important;
-    border-width: 6px !important;
-    padding: 4%;
-    background: rgb(229, 253, 253);
-  }
-  #MrKeets {
-    width: 100%;
-    height: 75%;
+
+@media screen and (max-width: 1230px) {
+  #birddialog {
+    width: 80%;
   }
 
-}
- 
-
-
-@media (max-width: 630px) {
-  #speechbox {
-    font-size: 94% !important;
-    border-width: 6px;
-    padding: 4%;
-    background: rgb(229, 253, 253);
-    width: 185% !important;
-  }
-  #buttontext {
-    font-size: 130%;
-    left: -55%;
-    width: 200%;
-  }
-  #startbutton {
-    top: 30%;
-    left: -93%;
-  }  
-  #start {
-    width: 200%;
-    height: 90px;
-    font-size: 220%;
-  }
-  #speechbubble {
-    width: 85%;
-    top: -5% !important;
-    left: 3% !important;
-  }
-  #content {
-    height: 490px;
-  }
   #mistakecount {
-    top: 5%;
-    left: -60%;
-    width: 70%;
-    height: 8%;
-    font-size: 96%;
+    margin-left: 0%;
+    height: 25%;
+    font-size: 120%;
   }
-  #repeat {
-    font-size: 85%;
-    top: 66%;
-    left: -90%;
-    width: 88%;
+
+  #startbutton {
+    position: static;
+    width: 60%;
+    margin: 0%;
   }
-  #wordsubmit {
-    top: 52%;
-    left: -83%;
-    width: 75%;
-    height: 12%;
-    font-size: 80%;
-    border-width: 4px;
+
+  #start {
+    height: 32%;
+    font-size: 205%;
+    border-width: 7px;
   }
-  #inputbox {
-    height: 40%;
-    font-size: 250%;
+
+    #buttontext { 
+    margin: 3%;
   }
-  #MrKeets {
-  width: 159%;
-  height: 56%;
-  margin-top: 35%;
-  position: relative;
-  left: 8%;
+    #input {
+      position: static;
+    }
+}
+
+@media screen and (max-width: 840px) {
+  #mistakecount {
+    height: 38%;
+    font-size: 95%;
+  }
+  #input {
+    margin-top: 10%;
   }
 }
+  
+
+
 
 
 
