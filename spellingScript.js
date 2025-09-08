@@ -1,5 +1,5 @@
 
-let words = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "january", "febuary", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+let words = ["chair","pencil","paper","board","books","crayon","eraser","class","cloud","stars","moon","sunny","maths","angle","algebra","equal","seven","eight","three","twelve","monday","friday","sunday","january","august","april","orange","purple","yellow","circle","square","triangle","sphere","onion","carrot","potato","tomato","beans","cabbage"];
 const feedback = document.getElementById("speechbox");
 let currentIndex = 0;
 let mistakes = 0;
@@ -57,6 +57,34 @@ function showSpellingProper() {
     speak(words[currentIndex]);
   }, 700)
 }
+
+function isMobile() {
+  return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+}
+
+let fullScrn = document.getElementById("fullscreen");
+let elem = document.documentElement;
+
+console.log(fullScrn.checked);
+
+fullScrn.addEventListener ('change', function() {
+
+
+  if (this.checked) {
+    elem.requestFullscreen();
+  } else {
+    if (document.fullscreenElement) {
+    document.exitFullscreen();
+    }
+  }
+  console.log(this.checked)
+});
+
+ document.getElementById('submitbutton').addEventListener('click', function() {
+    if (isMobile()) {
+      elem.requestFullscreen();
+    }
+});
 
 function speak(text) {
   const utterance = new SpeechSynthesisUtterance(text);

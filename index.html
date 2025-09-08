@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Spelling Game</title>
+    <link rel="icon" type="image/x-icon" href="images\cartoonparakeet.png">
 
     <link rel="stylesheet" type="text/css" href="spellinggame.css">
-    <!--link rel="stylesheet" type="text/css" href="reset.css"-->
 
   </head>
-  <body>
+  <body id="content-container">
 
 
     <div id="title">
@@ -20,6 +20,13 @@
     <div id="contentbox">
       <div id="content">
 
+      <div id="fullscrn-container">
+       <p id="fullscreentext">Fullscreen Mode</p>
+       <label class="switch">
+         <input type="checkbox" id="fullscreen">
+         <span class="slider round"></span>
+      </label>
+      </div>
 
       <div id="row1">
         <div id="birddialog">
@@ -60,7 +67,7 @@
         <br>
         <br>
         <br>
-          <input type="button" id="submitbutton" value="Proceed" onclick="setTimeout(showSpellingProper(), 400)">
+          <input type="button" id="submitbutton" value="Proceed" onclick="setTimeout(showSpellingProper(), 400);">
         </form>
         </div>
 
