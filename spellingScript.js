@@ -65,24 +65,33 @@ function isMobile() {
 let fullScrn = document.getElementById("fullscreen");
 let elem = document.documentElement;
 
-console.log(fullScrn.checked);
+function toggleFullScreen() {
 
-fullScrn.addEventListener ('change', function() {
-
-
-  if (this.checked) {
-    elem.requestFullscreen();
+  if (fullScrn.checked) {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
   } else {
-    if (document.fullscreenElement) {
-    document.exitFullscreen();
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+      document.msExitFullscreen();
     }
   }
-  console.log(this.checked)
-});
+}
+
+fullScrn.addEventListener ('change',toggleFullScreen);
 
  document.getElementById('submitbutton').addEventListener('click', function() {
     if (isMobile()) {
-      elem.requestFullscreen();
+      fullScrn.checked = true;
+      toggleFullScreen();
     }
 });
 
